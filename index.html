@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MechaFrog — Presale Alerts</title>
+  <meta name="description" content="Sign up to get notified when the MechaFrog (MECHA) presale goes live.">
+  <meta property="og:title" content="MechaFrog — Presale Alerts">
+  <meta property="og:description" content="Get an email when the MECHA presale starts.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#18e06f">
+  <style>
+    :root{
+      --bg:#050a0c; --fg:#eaffef; --muted:#9bb0a0; --accent:#18e06f; --accent-2:#38f28a; --stroke:#14303f;
+      --panel:#0a0f12; --panel-soft:#0c1418; --glow:#18e06f44;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%, var(--glow), transparent 60%), var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    .wrap{min-height:100%;display:grid;align-content:start;gap:28px}
+    header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(5,10,12,.8),rgba(5,10,12,.4));border-bottom:1px solid #0f222c}
+    .bar{max-width:1040px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:#0f1720;border:1px solid #173243;font-size:22px;box-shadow:0 0 0 6px #0f172033}
+    .title{font-size:18px;font-weight:900;letter-spacing:.4px}
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid #164a35;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;font-weight:900;text-decoration:none}
+
+    .hero{max-width:1040px;margin:24px auto 0;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;padding:0 20px}
+    .panel{background:color-mix(in oklab,var(--panel), transparent 12%);border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+    .panel-inner{padding:28px}
+    h1{margin:0 0 8px;font-size:40px;line-height:1.05;letter-spacing:.2px}
+    .lead{margin:0;color:var(--muted);max-width:52ch}
+
+    .signup{margin-top:16px;display:grid;grid-template-columns:1fr auto;gap:10px}
+    input[type=email]{appearance:none;width:100%;padding:16px 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg);outline:none}
+    input[type=email]::placeholder{color:#6f8a7d}
+    button[type=submit]{padding:16px 18px;border:0;border-radius:12px;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
+    button[type=submit]:disabled{opacity:.6;cursor:not-allowed}
+    .ok,.err{display:none;margin-top:12px;padding:10px 12px;border-radius:12px}
+    .ok{background:#0f1d16;border:1px solid #1e3f2c;color:#b9f7cf}
+    .err{background:#1b1414;border:1px solid #4c2a2a;color:#f5b5b5}
+
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;gap:10px}
+    .tile{position:relative;overflow:hidden;border-radius:16px;border:1px solid #173243;background:#061015}
+    .tile img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);}
+    .tile:before{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px #173243,inset 0 -60px 80px rgba(0,0,0,.35)}
+    .tile.big{grid-column:span 4;grid-row:span 2}
+    .tile.wide{grid-column:span 3}
+    .tile.tall{grid-row:span 2}
+
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .badge{font-size:12px;border:1px solid #2a3841;background:#0c1216;padding:6px 10px;border-radius:999px}
+
+    footer{max-width:1040px;margin:8px auto 36px;padding:0 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    a{color:var(--muted)}
+
+    @media (max-width: 880px){
+      .hero{grid-template-columns:1fr;}
+      h1{font-size:32px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="bar">
+        <div class="brand">
+          <div class="logo" aria-hidden>🐸</div>
+          <div class="title">MECHAFROG</div>
+        </div>
+        <a class="cta-btn" href="#signup">Get presale alert</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="panel">
+        <div class="panel-inner">
+          <h1>MechaFrog is booting up ⚙️🐸</h1>
+          <p class="lead">Be the first to know when the <strong>MECHA</strong> presale goes live. Zero spam, just one email when it starts.</p>
+          <form id="signup" class="signup" method="POST" action="https://formspree.io/f/XXXXXXXX">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" placeholder="you@example.com" required aria-required="true" />
+            <button id="submitBtn" type="submit">Notify me</button>
+            <input type="hidden" name="source" value="mechafrog-landing" />
+          </form>
+          <div id="ok" class="ok">✅ Thanks! Check your inbox for a confirmation email.</div>
+          <div id="err" class="err">⚠️ Sorry, something went wrong. Please try again.</div>
+          <div class="badges">
+            <span class="badge">No spam</span>
+            <span class="badge">1-click unsubscribe</span>
+            <span class="badge">GDPR-friendly</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel" aria-label="MechaFrog gallery">
+        <div class="panel-inner">
+          <div class="gallery">
+            <div class="tile big"><img alt="MechaFrog hero" src="mechafrog-hero.png"></div>
+            <div class="tile wide"><img alt="MechaFrog logo" src="mechafrog-logo.png"></div>
+            <div class="tile"><img alt="MechaFrog meme 1" src="mechafrog-meme-1.png"></div>
+            <div class="tile tall"><img alt="MechaFrog meme 2" src="mechafrog-meme-2.png"></div>
+            <div class="tile"><img alt="MechaFrog meme 3" src="mechafrog-meme-3.png"></div>
+            <div class="tile wide"><img alt="MechaFrog scene" src="mechafrog-scene.png"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> MechaFrog — The Future is Ribbit</span>
+      <span>
+        <a href="#" id="privacyLink">Privacy</a> ·
+        <a href="#" id="imprintLink">Imprint</a>
+      </span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('signup');
+    const ok = document.getElementById('ok');
+    const err = document.getElementById('err');
+    const btn = document.getElementById('submitBtn');
+    const email = document.getElementById('email');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      ok.style.display = 'none'; err.style.display = 'none';
+      const emailVal = email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        err.textContent = 'Please enter a valid email address.';
+        err.style.display = 'block'; return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const resp = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+        if (resp.ok) { ok.style.display = 'block'; form.reset(); }
+        else { err.style.display = 'block'; }
+      } catch(_) { err.style.display = 'block'; }
+      finally { btn.disabled = false; btn.textContent = 'Notify me'; }
+    });
+
+    function modal(txt){ alert(txt); }
+    document.getElementById('privacyLink').addEventListener('click', (e)=>{ e.preventDefault(); modal('We store your email solely to send a presale notification. You can unsubscribe anytime.');});
+    document.getElementById('imprintLink').addEventListener('click', (e)=>{ e.preventDefault(); modal('Add your legal imprint/company info here.');});
+  </script>
+</body>
+</html>
