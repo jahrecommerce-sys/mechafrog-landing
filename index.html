@@ -3,247 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MechaFrog — Presale Alerts</title>
-  <meta name="description" content="Sign up to get notified when the MechaFrog (MECHA) presale goes live.">
-  <meta property="og:title" content="MechaFrog — Presale Alerts">
-  <meta property="og:description" content="Get an email when the MECHA presale starts.">
-  <meta property="og:type" content="website">
+  <title>MechaFrog — The Meme Awakens 🐸⚙️</title>
+  <meta name="description" content="The swamp goes digital. Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
+
+  <!-- 🧠 Open Graph & Social Meta -->
+  <meta property="og:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
+  <meta property="og:description" content="Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
+  <meta property="og:image" content="https://mechafrog.vercel.app/preview.png">
+  <meta property="og:url" content="https://mechafrog.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
+  <meta name="twitter:description" content="Join the MechaFrog presale and unlock Play-to-Mine early access. Ribbit the future.">
+  <meta name="twitter:image" content="https://mechafrog.vercel.app/preview.png">
   <meta name="theme-color" content="#18e06f">
+
   <style>
     :root{
-      --bg:#050a0c; --fg:#eaffef; --muted:#9bb0a0; --accent:#18e06f; --accent-2:#38f28a; --stroke:#14303f;
-      --panel:#0a0f12; --panel-soft:#0c1418; --glow:#18e06f44;
+      --bg:#050a0c;--fg:#eaffef;--muted:#9bb0a0;--accent:#18e06f;--accent-2:#38f28a;--stroke:#14303f;
+      --panel:#0a0f12;--panel-soft:#0c1418;--glow:#18e06f44;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%, var(--glow), transparent 60%), var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
-    .wrap{min-height:100%;display:grid;align-content:start;gap:28px}
-    header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(5,10,12,.8),rgba(5,10,12,.4));border-bottom:1px solid #0f222c}
-    .bar{max-width:1040px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:#0f1720;border:1px solid #173243;font-size:22px;box-shadow:0 0 0 6px #0f172033}
-    .title{font-size:18px;font-weight:900;letter-spacing:.4px}
-    .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid #164a35;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;font-weight:900;text-decoration:none}
+    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,var(--glow),transparent 60%),var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
+    header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid #0f222c;backdrop-filter:blur(10px)}
+    .bar{max-width:1040px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:#0f1720;border:1px solid #173243}
+    .cta-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
 
-    .hero{max-width:1040px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 20px;align-items:stretch}
-    .panel{background:color-mix(in oklab,var(--panel), transparent 12%);border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+    .hero{max-width:1040px;margin:24px auto;display:grid;grid-template-columns:minmax(420px,1fr) 400px;gap:24px;padding:0 20px;align-items:start}
+    .panel{background:#0b1114;border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
     .panel-inner{padding:28px}
 
-    h1{margin:0 0 8px;font-size:40px;line-height:1.05;letter-spacing:.2px;text-align:center}
-    .title-line{display:flex;gap:10px;align-items:center;justify-content:center;white-space:nowrap}
-    .lead{margin:0;color:var(--muted);max-width:60ch;text-align:center;margin-left:auto;margin-right:auto}
+    h1{text-align:center;font-size:40px;margin:0 0 8px}
+    .title-line{display:flex;justify-content:center;align-items:center;gap:10px}
+    .lead{text-align:center;color:var(--muted);margin-bottom:20px}
 
-    .signup{margin:18px auto 0;max-width:720px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
-    .signup label{font-size:12px;color:var(--muted);padding:0 6px;align-self:center}
-    .signup input[type=email]{appearance:none;width:100%;height:52px;padding:0 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg);outline:none}
-    .signup input[type=email]::placeholder{color:#6f8a7d}
-    .signup button[type=submit]{height:52px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;border:0;border-radius:12px;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
-    .signup button[type=submit]:disabled{opacity:.6;cursor:not-allowed}
-    input[type=email]{appearance:none;width:100%;padding:16px 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg);outline:none}
-    input[type=email]::placeholder{color:#6f8a7d}
-    button[type=submit]{padding:16px 18px;border:0;border-radius:12px;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
-    button[type=submit]:disabled{opacity:.6;cursor:not-allowed}
-    .ok,.err{display:none;margin:14px auto 0;max-width:520px;padding:10px 12px;border-radius:12px}
+    .signup{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;max-width:720px;margin:auto}
+    .signup label{font-size:12px;color:var(--muted)}
+    .signup input{height:52px;padding:0 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg)}
+    .signup button{height:52px;padding:0 18px;border-radius:12px;border:0;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
+    .ok,.err{display:none;margin:14px auto;max-width:520px;padding:10px;border-radius:12px;text-align:center}
     .ok{background:#0f1d16;border:1px solid #1e3f2c;color:#b9f7cf}
     .err{background:#1b1414;border:1px solid #4c2a2a;color:#f5b5b5}
 
-    .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
-    .badge{font-size:12px;border:1px solid #2a3841;background:#0c1216;padding:6px 10px;border-radius:999px}
+    .media{display:grid;gap:16px;align-self:start}
+    .frame,.subframe{border-radius:16px;border:1px solid #173243;background:#061015;padding:14px;display:grid;place-items:center}
+    img{max-width:100%;border-radius:10px}
 
-    .media{display:grid;grid-template-rows:1fr auto;gap:16px;height:100%}
-    .frame{border-radius:16px;border:1px solid #173243;background:#061015;display:grid;place-items:center;overflow:hidden;padding:14px}
-    .frame img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-    .subframe{border-radius:16px;border:1px solid #173243;background:#061015;display:grid;place-items:center;overflow:hidden;padding:12px}
-    .subframe img{max-width:100%;max-height:220px;object-fit:contain;display:block}
-
-    footer{max-width:1040px;margin:8px auto 36px;padding:0 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}
-    a{color:var(--muted)}
-
-    /* Unsubscribe modal */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;padding:20px}
-    .modal.show{display:grid}
-    .modal-card{width:100%;max-width:520px;background:color-mix(in oklab,var(--panel), transparent 8%);border:1px solid var(--stroke);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:20px}
-    .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
-    .btn{padding:12px 14px;border-radius:10px;border:1px solid #173243;background:#0c1418;color:var(--fg);cursor:pointer}
-    .btn.primary{background:var(--accent);color:#041b10;border-color:#1e7a53}
-
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr;}
-      h1{font-size:32px}
-      .title-line{white-space:normal}
-    }
+    footer{max-width:1040px;margin:30px auto;padding:0 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+    a{color:var(--accent);text-decoration:none}
+    @media(max-width:880px){.hero{grid-template-columns:1fr;}h1{font-size:32px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="bar">
-        <div class="brand">
-          <div class="logo" aria-hidden>🐸</div>
-          <div class="title">MECHAFROG</div>
-        </div>
-        <a class="cta-btn" href="#signup">Get presale alert</a>
-      </div>
-    </header>
-
-    <section class="hero">
-      <!-- Left: content -->
-      <div class="panel">
-        <div class="panel-inner">
-          <h1 class="title-line"><span>MechaFrog is booting up</span><span>⚙️🐸</span></h1>
-          <p class="lead">Be the first to know when the <strong>MECHA</strong> presale goes live. Zero spam, just one email when it starts.</p>
-
-          <form id="signup" class="signup" method="POST" action="https://formspree.io/f/xgvpjlow">
-            <label for="email">Email</label>
-            <input id="email" name="_replyto" type="email" inputmode="email" placeholder="you@example.com" required aria-required="true" />
-            <button id="submitBtn" type="submit">Notify me</button>
-            <input type="hidden" name="_subject" value="MechaFrog Presale – New signup" />
-            <input type="hidden" name="source" value="mechafrog-landing" />
-          </form>
-
-          <div id="ok" class="ok">🐸 You’re in. The swamp awakens. <strong>Ribbit the future.</strong></div>
-          <div id="err" class="err">⚠️ Sorry, something went wrong. Please try again.</div>
-
-          <div class="badges">
-            <span class="badge">No spam</span>
-            <span class="badge">1-click unsubscribe</span>
-            <span class="badge">GDPR-friendly</span>
-          </div>
-
-          <!-- Why MechaFrog + Mini FAQ -->
-          <div class="panel" style="margin-top:16px">
-            <div class="panel-inner" style="text-align:left">
-              <h3 style="margin:0 0 8px;font-weight:900;text-align:center">Why MechaFrog?</h3>
-              <ul style="margin:0 0 14px;padding-left:18px;color:var(--muted)">
-                <li style="margin:6px 0"><strong>Born from the swamp</strong> — a fusion of meme energy and machine power.</li>
-                <li style="margin:6px 0"><strong>Community first</strong> — built by frogs, for frogs.</li>
-                <li style="margin:6px 0"><strong>No hype. Just evolution.</strong></li>
-              </ul>
-
-              <h3 style="margin:0 0 8px;font-weight:900;text-align:center">FAQ</h3>
-              <div>
-                <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
-                  <summary style="cursor:pointer;outline:none;font-weight:700">When does the presale start?</summary>
-                  <p style="margin:8px 0 0;color:var(--muted)">Soon. Once the code is perfected, the frogs will march.</p>
-                </details>
-                <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
-                  <summary style="cursor:pointer;outline:none;font-weight:700">How can I join early?</summary>
-                  <p style="margin:8px 0 0;color:var(--muted)">Subscribe with your email — you’ll be first to know.</p>
-                </details>
-                <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px">
-                  <summary style="cursor:pointer;outline:none;font-weight:700">Where’s the community?</summary>
-                  <p style="margin:8px 0 0;color:var(--muted)">Right now we ribbit loudest on 
-                    <a href="https://www.instagram.com/mechafrog_official" target="_blank" rel="noopener" style="color:#9be7c4;text-decoration:underline">Instagram @mechafrog_official</a>.
-                  </p>
-                </details>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: two clean images (hero + logo) -->
-      <div class="panel">
-        <div class="panel-inner media">
-          <div class="frame"><img alt="MechaFrog hero" src="mechafrog-hero.png"></div>
-          <div class="subframe"><img alt="MechaFrog logo" src="mechafrog-logo.png"></div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <span>© <span id="year"></span> MechaFrog — The Future is Ribbit</span>
-      <span>
-        <a href="#" id="privacyLink">Privacy</a> ·
-        <a href="#" id="unsubscribeLink">Unsubscribe</a>
-      </span>
-    </footer>
+<header>
+  <div class="bar">
+    <div class="brand"><div class="logo">🐸</div><strong>MECHAFROG</strong></div>
+    <a href="#signup" class="cta-btn">Get presale alert</a>
   </div>
+</header>
 
-  <!-- Unsubscribe Modal -->
-  <div id="unsubModal" class="modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="unsubTitle">
-      <h3 id="unsubTitle" style="margin:0 0 6px;font-weight:900">Unsubscribe</h3>
-      <p style="margin:0 0 10px;color:var(--muted)">Enter your email to request deletion from our list. We’ll remove it promptly.</p>
-      <form id="unsubForm" method="POST" action="https://formspree.io/f/xgvpjlow">
-        <input type="email" name="_replyto" placeholder="you@example.com" required style="width:100%;padding:12px 12px;border-radius:10px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg);outline:none" />
-        <input type="hidden" name="_subject" value="MechaFrog – Unsubscribe request" />
-        <input type="hidden" name="purpose" value="unsubscribe" />
-        <div class="modal-actions">
-          <button type="button" class="btn" id="unsubCancel">Cancel</button>
-          <button type="submit" class="btn primary" id="unsubSend">Send request</button>
-        </div>
+<section class="hero">
+  <div class="panel">
+    <div class="panel-inner">
+      <h1 class="title-line">MechaFrog is booting up ⚙️🐸</h1>
+      <p class="lead">Be the first to know when the <strong>MECHA</strong> presale goes live. Zero spam, just one email when it starts.</p>
+
+      <form id="signup" class="signup" method="POST" action="https://formspree.io/f/xgvpjlow">
+        <label for="email">Email</label>
+        <input id="email" name="_replyto" type="email" placeholder="you@example.com" required />
+        <button id="submitBtn" type="submit">Notify me</button>
       </form>
-      <div id="unsubOk" class="ok" style="display:none;margin-top:10px">✅ Request sent. We’ll delete your email shortly.</div>
-      <div id="unsubErr" class="err" style="display:none;margin-top:10px">⚠️ Could not send request. Please try again.</div>
+
+      <div id="ok" class="ok">🐸 You’re in. The swamp awakens. <strong>Ribbit the future.</strong></div>
+      <div id="err" class="err">⚠️ Something went wrong. Try again.</div>
+
+      <div class="panel" style="margin-top:20px">
+        <div class="panel-inner">
+          <h3 style="text-align:center">Why MechaFrog?</h3>
+          <ul style="color:var(--muted);padding-left:18px">
+            <li>🧪 <strong>Born from the swamp</strong> — a fusion of meme energy and machine power.</li>
+            <li>🤝 <strong>Community first</strong> — built by frogs, for frogs.</li>
+            <li>⚙️ <strong>No hype. Just evolution.</strong></li>
+          </ul>
+
+          <div style="border:1px solid #1a5f40;background:linear-gradient(180deg,#0f1d16,#0b1410);border-radius:12px;padding:12px 14px;margin:12px 0 18px">
+            <div style="font-weight:800;margin-bottom:4px">🎮 Exclusive Access: <span style="color:#9be7c4">Play-to-Mine</span></div>
+            <div style="color:var(--muted);font-size:14px">
+              Holders from the <strong>MechaFrog presale</strong> will gain early access to our experimental
+              <strong>idle/miner mini-game</strong> — a playful way to “mine” MECHA by completing missions and hitting milestones.
+            </div>
+            <ul style="margin:10px 0 0 18px;color:var(--muted);font-size:14px">
+              <li>🪙 <strong>Presale required</strong> — only early holders can join the mining phase</li>
+              <li>⚙️ <strong>Earn rewards</strong> — reach milestones to receive token bonuses</li>
+              <li>📱 <strong>Play in your browser</strong> — simple, mobile-friendly & addictive</li>
+            </ul>
+          </div>
+
+          <h3 style="text-align:center">FAQ</h3>
+          <details><summary>⏳ When does the presale start?</summary><p>Soon — once the code is polished and the frogs are ready. Join the list to be first.</p></details>
+          <details><summary>📰 How can I join early?</summary><p>Subscribe with your email — we’ll ping you the moment it’s live.</p></details>
+          <details><summary>🎮 What’s “Play-to-Mine”?</summary><p>A light idle/miner mini-game during presale where you tap, upgrade and “mine” MECHA. It’s just for fun — perks may apply.</p></details>
+          <details><summary>📣 Where’s the community?</summary><p>Right now we ribbit loudest on <a href="https://www.instagram.com/mechafrog_official" target="_blank">@mechafrog_official</a>.</p></details>
+        </div>
+      </div>
     </div>
   </div>
 
-  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <div class="panel">
+    <div class="panel-inner media">
+      <div class="frame"><img src="mechafrog-hero.png" alt="MechaFrog Hero"></div>
+      <div class="subframe"><img src="mechafrog-logo.png" alt="MechaFrog Logo"></div>
+    </div>
+  </div>
+</section>
 
-    // Form handling (Formspree)
-    const form = document.getElementById('signup');
-    const ok = document.getElementById('ok');
-    const err = document.getElementById('err');
-    const btn = document.getElementById('submitBtn');
-    const email = document.getElementById('email');
+<footer>
+  <span>© <span id="year"></span> MechaFrog — The Future is Ribbit</span>
+  <span><a href="#">Privacy</a> · <a href="#">Unsubscribe</a></span>
+</footer>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      ok.style.display = 'none';
-      err.style.display = 'none';
-
-      const emailVal = email.value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-        err.textContent = 'Please enter a valid email address.';
-        err.style.display = 'block';
-        return;
-      }
-
-      btn.disabled = true; btn.textContent = 'Sending…';
-      try {
-        const resp = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
-        if (resp.ok) {
-          ok.style.display = 'block';
-          form.reset();
-        } else {
-          err.style.display = 'block';
-        }
-      } catch(_) {
-        err.style.display = 'block';
-      } finally {
-        btn.disabled = false; btn.textContent = 'Notify me';
-      }
-    });
-
-    // Placeholder modals for Privacy/Imprint — replace with your pages later
-    function modal(txt){ alert(txt); }
-    document.getElementById('privacyLink').addEventListener('click', (e)=>{ e.preventDefault(); modal('We store your email solely to send a presale notification. You can unsubscribe anytime.');});
-
-    // Unsubscribe modal logic
-    const unsubModal = document.getElementById('unsubModal');
-    const unsubLink = document.getElementById('unsubscribeLink');
-    const unsubCancel = document.getElementById('unsubCancel');
-    const unsubForm = document.getElementById('unsubForm');
-    const unsubOk = document.getElementById('unsubOk');
-    const unsubErr = document.getElementById('unsubErr');
-
-    unsubLink.addEventListener('click', (e)=>{ e.preventDefault(); unsubModal.classList.add('show'); });
-    unsubCancel.addEventListener('click', ()=>{ unsubModal.classList.remove('show'); unsubOk.style.display='none'; unsubErr.style.display='none'; });
-    unsubModal.addEventListener('click', (e)=>{ if(e.target === unsubModal){ unsubCancel.click(); }});
-
-    unsubForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      unsubOk.style.display='none'; unsubErr.style.display='none';
-      try {
-        const resp = await fetch(unsubForm.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(unsubForm) });
-        if (resp.ok) { unsubOk.style.display='block'; unsubForm.reset(); }
-        else { unsubErr.style.display='block'; }
-      } catch(_) { unsubErr.style.display='block'; }
-    });
-  </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const form=document.getElementById('signup'),ok=document.getElementById('ok'),err=document.getElementById('err'),btn=document.getElementById('submitBtn'),email=document.getElementById('email');
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();ok.style.display='none';err.style.display='none';
+    if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.value)){err.textContent='Please enter a valid email.';err.style.display='block';return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    try{const resp=await fetch(form.action,{method:'POST',body:new FormData(form)});if(resp.ok){ok.style.display='block';form.reset();}else err.style.display='block';}
+    catch(_){err.style.display='block';}finally{btn.disabled=false;btn.textContent='Notify me';}
+  });
+</script>
 </body>
 </html>
