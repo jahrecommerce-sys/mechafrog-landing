@@ -24,11 +24,18 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,var(--glow),transparent 60%),var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
-header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid #0f222c;backdrop-filter:blur(10px)}
+a{color:var(--accent);text-decoration:none}
+header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid #0f222c;backdrop-filter:blur(10px);z-index:10}
 .bar{max-width:1040px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
 .brand{display:flex;align-items:center;gap:10px}
 .logo{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:#0f1720;border:1px solid #173243}
 .cta-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
+
+/* News banner */
+.news{background:linear-gradient(90deg,#0c1418, #0f2218);border-bottom:1px solid #153624;color:#c9f6da}
+.news-inner{max-width:1040px;margin:0 auto;padding:8px 20px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+.news p{margin:0;font-size:14px}
+.news button{background:transparent;border:1px solid #24523d;color:#9be7c4;border-radius:999px;padding:4px 10px;cursor:pointer}
 
 .hero{max-width:1040px;margin:24px auto;display:grid;grid-template-columns:minmax(420px,1fr) 400px;gap:24px;padding:0 20px;align-items:start}
 .panel{background:#0b1114;border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
@@ -36,13 +43,19 @@ header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid
 
 h1{text-align:center;font-size:40px;margin:0 0 8px}
 .title-line{display:flex;justify-content:center;align-items:center;gap:10px}
-.lead{text-align:center;color:var(--muted);margin-bottom:20px}
+.lead{text-align:center;color:var(--muted);margin-bottom:14px}
 
-.signup{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;max-width:720px;margin:auto}
+/* Social + counter row */
+.meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0 18px}
+.badge{font-size:12px;border:1px solid #2a3841;background:#0c1216;padding:6px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.counter{font-weight:800;color:#a9f3c8}
+
+.signup{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;max-width:720px;margin:10px auto 0}
 .signup label{font-size:12px;color:var(--muted)}
 .signup input{height:52px;padding:0 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg)}
+.signup input::placeholder{color:#6f8a7d}
 .signup button{height:52px;padding:0 18px;border-radius:12px;border:0;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
-.ok,.err{display:none;margin:14px auto;max-width:520px;padding:10px;border-radius:12px;text-align:center}
+.ok,.err{display:none;margin:12px auto 0;max-width:520px;padding:10px;border-radius:12px;text-align:center}
 .ok{background:#0f1d16;border:1px solid #1e3f2c;color:#b9f7cf}
 .err{background:#1b1414;border:1px solid #4c2a2a;color:#f5b5b5}
 
@@ -50,12 +63,41 @@ h1{text-align:center;font-size:40px;margin:0 0 8px}
 .frame,.subframe{border-radius:16px;border:1px solid #173243;background:#061015;padding:14px;display:grid;place-items:center}
 img{max-width:100%;border-radius:10px}
 
+.section-title{margin:0 0 10px;text-align:center;font-weight:900}
+.road{display:grid;gap:12px}
+.road .step{border:1px solid #173243;background:#0c1216;border-radius:12px;padding:12px 14px}
+.road .step strong{display:block;margin-bottom:4px}
+
+/* Updates timeline */
+.updates{display:grid;gap:10px;margin-top:16px}
+.update{display:flex;gap:10px;align-items:flex-start;border:1px solid #173243;background:#0c1216;border-radius:12px;padding:10px 12px}
+.update time{font-size:12px;color:#9bb0a0;min-width:90px}
+.update p{margin:0;color:#cfeee0}
+
+/* Progress bar */
+.progress-wrap{margin-top:14px}
+.progress-label{display:flex;justify-content:space-between;color:#9bb0a0;font-size:13px;margin-bottom:6px}
+.progress{height:10px;background:#0c1216;border:1px solid #173243;border-radius:999px;overflow:hidden}
+.progress > span{display:block;height:100%;background:linear-gradient(90deg,#18e06f,#38f28a);width:0%}
+
 footer{max-width:1040px;margin:30px auto;padding:0 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
-a{color:var(--accent);text-decoration:none}
-@media(max-width:880px){.hero{grid-template-columns:1fr;}h1{font-size:32px}}
+
+@media(max-width:880px){
+  .hero{grid-template-columns:1fr;}
+  h1{font-size:32px}
+}
 </style>
 </head>
 <body>
+
+<!-- News banner -->
+<div class="news" id="newsBar">
+  <div class="news-inner">
+    <p>🚀 <strong>News:</strong> Presale smart contract testing complete. Play-to-Mine teaser dropping soon.</p>
+    <button id="newsClose" aria-label="Hide news">Hide</button>
+  </div>
+</div>
+
 <header>
   <div class="bar">
     <div class="brand"><div class="logo">🐸</div><strong>MECHAFROG</strong></div>
@@ -69,6 +111,13 @@ a{color:var(--accent);text-decoration:none}
       <h1 class="title-line">MechaFrog is booting up ⚙️🐸</h1>
       <p class="lead">Be the first to know when the <strong>MECHA</strong> presale goes live. Zero spam, just one email when it starts.</p>
 
+      <!-- Social & counter -->
+      <div class="meta-row">
+        <span class="badge">📸 <a href="https://www.instagram.com/mechafrog_official" target="_blank" rel="noopener">@mechafrog_official</a></span>
+        <span class="badge">💬 Discord soon</span>
+        <span class="badge">🐸 <span class="counter"><span id="joinCount">120</span> frogs joined</span></span>
+      </div>
+
       <form id="signup" class="signup" method="POST" action="https://formspree.io/f/xgvpjlow">
         <label for="email">Email</label>
         <input id="email" name="_replyto" type="email" placeholder="you@example.com" required autocomplete="email" />
@@ -80,13 +129,14 @@ a{color:var(--accent);text-decoration:none}
 
       <div class="panel" style="margin-top:20px">
         <div class="panel-inner">
-          <h3 style="text-align:center">Why MechaFrog?</h3>
-          <ul style="color:var(--muted);padding-left:18px">
+          <h3 class="section-title">Why MechaFrog?</h3>
+          <ul style="color:var(--muted);padding-left:18px;margin:0 0 12px">
             <li>🧪 <strong>Born from the swamp</strong> — a fusion of meme energy and machine power.</li>
             <li>🤝 <strong>Community first</strong> — built by frogs, for frogs.</li>
             <li>⚙️ <strong>No hype. Just evolution.</strong></li>
           </ul>
 
+          <!-- Play-to-Mine teaser -->
           <div style="border:1px solid #1a5f40;background:linear-gradient(180deg,#0f1d16,#0b1410);border-radius:12px;padding:12px 14px;margin:12px 0 18px">
             <div style="font-weight:800;margin-bottom:4px">🎮 Exclusive Access: <span style="color:#9be7c4">Play-to-Mine</span></div>
             <div style="color:var(--muted);font-size:14px">
@@ -100,11 +150,61 @@ a{color:var(--accent);text-decoration:none}
             </ul>
           </div>
 
-          <h3 style="text-align:center">FAQ</h3>
-          <details><summary>⏳ When does the presale start?</summary><p>Soon — once the code is polished and the frogs are ready. Join the list to be first.</p></details>
-          <details><summary>📰 How can I join early?</summary><p>Subscribe with your email — we’ll ping you the moment it’s live.</p></details>
-          <details><summary>🎮 What’s “Play-to-Mine”?</summary><p>A light idle/miner mini-game during presale where you tap, upgrade and “mine” MECHA. It’s just for fun — perks may apply.</p></details>
-          <details><summary>📣 Where’s the community?</summary><p>Right now we ribbit loudest on <a href="https://www.instagram.com/mechafrog_official" target="_blank">@mechafrog_official</a>.</p></details>
+          <!-- Latest Updates -->
+          <h3 class="section-title">Latest Updates</h3>
+          <div class="updates" id="updates">
+            <div class="update">
+              <time>2025-03-01</time>
+              <p>✅ Landing page v2 live: counter, roadmap, FAQ, social links.</p>
+            </div>
+            <div class="update">
+              <time>2025-03-02</time>
+              <p>🧪 Smart contracts retested on Sepolia; claim & buy flow verified.</p>
+            </div>
+            <div class="update">
+              <time>2025-03-03</time>
+              <p>🎮 Play-to-Mine mini-game concept locked for presale holders.</p>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress-wrap">
+            <div class="progress-label">
+              <span>Presale preparation</span>
+              <strong><span id="progressPctText">80%</span></strong>
+            </div>
+            <div class="progress"><span id="progressBar"></span></div>
+          </div>
+
+          <!-- Roadmap -->
+          <h3 class="section-title" style="margin-top:16px">Roadmap</h3>
+          <div class="road">
+            <div class="step"><strong>Phase 1 — Awakening 🐸</strong> Landing page, socials, email list, brand visuals. <em>Now</em></div>
+            <div class="step"><strong>Phase 2 — Presale ⚙️</strong> Contracts audit & deploy, presale page, progress tracking.</div>
+            <div class="step"><strong>Phase 3 — Play-to-Mine 🎮</strong> Early access for presale holders, leaderboard & perks.</div>
+            <div class="step"><strong>Phase 4 — Listing 🚀</strong> DEX launch, liquidity, expanded rewards & partnerships.</div>
+          </div>
+
+          <!-- FAQ -->
+          <h3 class="section-title" style="margin-top:16px">FAQ</h3>
+          <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
+            <summary style="cursor:pointer;outline:none;font-weight:700">⏳ When does the presale start?</summary>
+            <p style="margin:8px 0 0;color:var(--muted)">Soon — once the code is polished and the frogs are ready. Join the list to be first.</p>
+          </details>
+          <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
+            <summary style="cursor:pointer;outline:none;font-weight:700">📰 How can I join early?</summary>
+            <p style="margin:8px 0 0;color:var(--muted)">Subscribe with your email — we’ll ping you the moment it’s live.</p>
+          </details>
+          <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
+            <summary style="cursor:pointer;outline:none;font-weight:700">🎮 What’s “Play-to-Mine”?</summary>
+            <p style="margin:8px 0 0;color:var(--muted)">A light idle/miner mini-game during presale where you tap, upgrade and “mine” MECHA. It’s just for fun — perks may apply.</p>
+          </details>
+          <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px">
+            <summary style="cursor:pointer;outline:none;font-weight:700">📣 Where’s the community?</summary>
+            <p style="margin:8px 0 0;color:var(--muted)">Right now we ribbit loudest on 
+              <a href="https://www.instagram.com/mechafrog_official" target="_blank" rel="noopener">@mechafrog_official</a>.
+            </p>
+          </details>
         </div>
       </div>
     </div>
@@ -124,8 +224,27 @@ a{color:var(--accent);text-decoration:none}
 </footer>
 
 <script>
+  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // News banner hide/persist
+  const newsBar = document.getElementById('newsBar');
+  const newsClose = document.getElementById('newsClose');
+  if (localStorage.getItem('mf_news_hidden') === '1') newsBar.style.display = 'none';
+  newsClose.addEventListener('click', () => { newsBar.style.display = 'none'; localStorage.setItem('mf_news_hidden','1'); });
+
+  // Join counter (client-side visual only)
+  const BASE_JOIN_COUNT = 120; // <— gesetzt wie gewünscht
+  const joinCountEl = document.getElementById('joinCount');
+  const saved = Number(localStorage.getItem('mf_join_add')||0);
+  joinCountEl.textContent = BASE_JOIN_COUNT + saved;
+
+  // Progress bar (visual)
+  const PRESALE_PROGRESS = 80; // <— passe hier den Prozentwert an
+  document.getElementById('progressPctText').textContent = PRESALE_PROGRESS + '%';
+  document.getElementById('progressBar').style.width = PRESALE_PROGRESS + '%';
+
+  // Form
   const form = document.getElementById('signup');
   const ok = document.getElementById('ok');
   const err = document.getElementById('err');
@@ -137,7 +256,7 @@ a{color:var(--accent);text-decoration:none}
     ok.style.display = 'none';
     err.style.display = 'none';
 
-    // Trim + HTML5-Validation (robust & einfach)
+    // Trim + HTML5 Validation
     email.value = email.value.trim();
     if (!email.checkValidity()) {
       err.textContent = 'Please enter a valid email.';
@@ -157,6 +276,14 @@ a{color:var(--accent);text-decoration:none}
       if (resp.ok) {
         ok.style.display = 'block';
         form.reset();
+        // increment client-side counter once per device
+        const alreadyAdded = Number(localStorage.getItem('mf_join_added_flag')||0);
+        if (!alreadyAdded) {
+          const inc = Number(localStorage.getItem('mf_join_add')||0) + 1;
+          localStorage.setItem('mf_join_add', String(inc));
+          localStorage.setItem('mf_join_added_flag','1');
+          joinCountEl.textContent = BASE_JOIN_COUNT + inc;
+        }
       } else {
         err.style.display = 'block';
       }
