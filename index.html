@@ -1,163 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MechaFrog — The Meme Awakens 🐸⚙️</title>
-  <meta property="og:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
-  <meta property="og:description" content="Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
-  <meta property="og:image" content="https://mechafrog.vercel.app/preview.png">
-  <meta property="og:url" content="https://mechafrog.vercel.app/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
-  <meta name="twitter:description" content="Join the MechaFrog presale and unlock Play-to-Mine early access. Ribbit the future.">
-  <meta name="twitter:image" content="https://mechafrog.vercel.app/preview.png">
-  <style>
-    body {
-      font-family: 'Orbitron', sans-serif;
-      margin: 0;
-      background-color: #050505;
-      color: #d4ffd4;
-      text-align: center;
-    }
-    header {
-      padding: 2rem 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #8aff8a;
-      text-shadow: 0 0 10px #00ff7f;
-      margin-bottom: 1rem;
-    }
-    p {
-      color: #b8fdb8;
-      max-width: 600px;
-      margin: 0 auto 1rem;
-    }
-    form {
-      margin-top: 1rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-    input[type="email"] {
-      width: 280px;
-      padding: 0.6rem;
-      border: 2px solid #00ff7f;
-      border-radius: 8px;
-      background: #111;
-      color: #fff;
-      font-size: 1rem;
-    }
-    button {
-      margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #00ff7f;
-      color: #000;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-    button:hover {
-      background-color: #66ffb2;
-    }
-    .error {
-      color: #ff4d4d;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      display: none;
-    }
-    section {
-      margin-top: 3rem;
-      padding: 0 1rem;
-    }
-    .faq details {
-      background: #0a0a0a;
-      border: 1px solid #00ff7f;
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 0.7rem auto;
-      max-width: 600px;
-      text-align: left;
-      cursor: pointer;
-    }
-    footer {
-      margin-top: 3rem;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #7af57a;
-    }
-    a {
-      color: #7af57a;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MechaFrog — The Meme Awakens 🐸⚙️</title>
+<meta name="description" content="The swamp goes digital. Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
+
+<!-- 🧠 Open Graph & Social Meta -->
+<meta property="og:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
+<meta property="og:description" content="Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
+<meta property="og:image" content="https://mechafrog.vercel.app/preview.png">
+<meta property="og:url" content="https://mechafrog.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
+<meta name="twitter:description" content="Join the MechaFrog presale and unlock Play-to-Mine early access. Ribbit the future.">
+<meta name="twitter:image" content="https://mechafrog.vercel.app/preview.png">
+<meta name="theme-color" content="#18e06f">
+
+<style>
+:root{
+  --bg:#050a0c;--fg:#eaffef;--muted:#9bb0a0;--accent:#18e06f;--accent-2:#38f28a;--stroke:#14303f;
+  --panel:#0a0f12;--panel-soft:#0c1418;--glow:#18e06f44;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,var(--glow),transparent 60%),var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
+header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid #0f222c;backdrop-filter:blur(10px)}
+.bar{max-width:1040px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:#0f1720;border:1px solid #173243}
+.cta-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
+
+.hero{max-width:1040px;margin:24px auto;display:grid;grid-template-columns:minmax(420px,1fr) 400px;gap:24px;padding:0 20px;align-items:start}
+.panel{background:#0b1114;border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.panel-inner{padding:28px}
+
+h1{text-align:center;font-size:40px;margin:0 0 8px}
+.title-line{display:flex;justify-content:center;align-items:center;gap:10px}
+.lead{text-align:center;color:var(--muted);margin-bottom:20px}
+
+.signup{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;max-width:720px;margin:auto}
+.signup label{font-size:12px;color:var(--muted)}
+.signup input{height:52px;padding:0 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg)}
+.signup button{height:52px;padding:0 18px;border-radius:12px;border:0;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
+.ok,.err{display:none;margin:14px auto;max-width:520px;padding:10px;border-radius:12px;text-align:center}
+.ok{background:#0f1d16;border:1px solid #1e3f2c;color:#b9f7cf}
+.err{background:#1b1414;border:1px solid #4c2a2a;color:#f5b5b5}
+
+.media{display:grid;gap:16px;align-self:start}
+.frame,.subframe{border-radius:16px;border:1px solid #173243;background:#061015;padding:14px;display:grid;place-items:center}
+img{max-width:100%;border-radius:10px}
+
+footer{max-width:1040px;margin:30px auto;padding:0 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+a{color:var(--accent);text-decoration:none}
+@media(max-width:880px){.hero{grid-template-columns:1fr;}h1{font-size:32px}}
+</style>
 </head>
 <body>
-  <header>
-    <img src="mechafrog-logo.png" alt="MechaFrog Logo" width="160" />
-    <h1>MechaFrog is booting up ⚙️🐸</h1>
-    <p>Be the first to know when the MECHA presale goes live. Zero spam, just one email when it starts.</p>
+<header>
+  <div class="bar">
+    <div class="brand"><div class="logo">🐸</div><strong>MECHAFROG</strong></div>
+    <a href="#signup" class="cta-btn">Get presale alert</a>
+  </div>
+</header>
 
-    <form id="newsletter" action="https://formspree.io/f/xgvpjlow" method="POST">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required placeholder="Enter your email" autocomplete="email" />
-      <button type="submit">Notify me</button>
-      <div class="error" id="err"></div>
-    </form>
-  </header>
+<section class="hero">
+  <div class="panel">
+    <div class="panel-inner">
+      <h1 class="title-line">MechaFrog is booting up ⚙️🐸</h1>
+      <p class="lead">Be the first to know when the <strong>MECHA</strong> presale goes live. Zero spam, just one email when it starts.</p>
 
-  <section>
-    <h2>🎮 Exclusive Access: Play-to-Mine</h2>
-    <p>Presale buyers unlock the first meme-based mini-game that rewards you with MECHA for every milestone you reach. Play, mine, evolve — and earn. 🪙</p>
-    <ul style="list-style:none; padding:0;">
-      <li>🪙 Presale required</li>
-      <li>⚙️ Earn rewards by milestones</li>
-      <li>📱 Browser-friendly</li>
-    </ul>
-  </section>
+      <form id="signup" class="signup" method="POST" action="https://formspree.io/f/xgvpjlow">
+        <label for="email">Email</label>
+        <input id="email" name="_replyto" type="email" placeholder="you@example.com" required autocomplete="email" />
+        <button id="submitBtn" type="submit">Notify me</button>
+      </form>
 
-  <section>
-    <h2>🐸 Why MechaFrog?</h2>
-    <p>Because memes deserve utility. MechaFrog combines community, creativity, and real on-chain innovation.</p>
-    <p>Follow us on <a href="https://instagram.com/mechafrog_official" target="_blank">@mechafrog_official</a></p>
-  </section>
+      <div id="ok" class="ok">🐸 You’re in. The swamp awakens. <strong>Ribbit the future.</strong></div>
+      <div id="err" class="err">⚠️ Something went wrong. Try again.</div>
 
-  <section class="faq">
-    <h2>❓ Mini-FAQ</h2>
-    <details><summary>What is MechaFrog?</summary><p>A meme coin project that merges memes, AI, and gaming. 🧠🐸</p></details>
-    <details><summary>How can I join the presale?</summary><p>Sign up above to be notified the moment it goes live! 🚀</p></details>
-    <details><summary>Can I play without buying?</summary><p>Play-to-Mine is exclusive to presale holders — early frogs get the fun first! 🎮</p></details>
-  </section>
+      <div class="panel" style="margin-top:20px">
+        <div class="panel-inner">
+          <h3 style="text-align:center">Why MechaFrog?</h3>
+          <ul style="color:var(--muted);padding-left:18px">
+            <li>🧪 <strong>Born from the swamp</strong> — a fusion of meme energy and machine power.</li>
+            <li>🤝 <strong>Community first</strong> — built by frogs, for frogs.</li>
+            <li>⚙️ <strong>No hype. Just evolution.</strong></li>
+          </ul>
 
-  <footer>
-    <p><a href="#">Privacy</a> | <a href="#">Unsubscribe</a></p>
-    <p>© 2025 MechaFrog. All rights reserved.</p>
-  </footer>
+          <div style="border:1px solid #1a5f40;background:linear-gradient(180deg,#0f1d16,#0b1410);border-radius:12px;padding:12px 14px;margin:12px 0 18px">
+            <div style="font-weight:800;margin-bottom:4px">🎮 Exclusive Access: <span style="color:#9be7c4">Play-to-Mine</span></div>
+            <div style="color:var(--muted);font-size:14px">
+              Holders from the <strong>MechaFrog presale</strong> will gain early access to our experimental
+              <strong>idle/miner mini-game</strong> — a playful way to “mine” MECHA by completing missions and hitting milestones.
+            </div>
+            <ul style="margin:10px 0 0 18px;color:var(--muted);font-size:14px">
+              <li>🪙 <strong>Presale required</strong> — only early holders can join the mining phase</li>
+              <li>⚙️ <strong>Earn rewards</strong> — reach milestones to receive token bonuses</li>
+              <li>📱 <strong>Play in your browser</strong> — simple, mobile-friendly & addictive</li>
+            </ul>
+          </div>
 
-  <script>
-    const form = document.getElementById('newsletter');
-    const email = document.getElementById('email');
-    const err = document.getElementById('err');
+          <h3 style="text-align:center">FAQ</h3>
+          <details><summary>⏳ When does the presale start?</summary><p>Soon — once the code is polished and the frogs are ready. Join the list to be first.</p></details>
+          <details><summary>📰 How can I join early?</summary><p>Subscribe with your email — we’ll ping you the moment it’s live.</p></details>
+          <details><summary>🎮 What’s “Play-to-Mine”?</summary><p>A light idle/miner mini-game during presale where you tap, upgrade and “mine” MECHA. It’s just for fun — perks may apply.</p></details>
+          <details><summary>📣 Where’s the community?</summary><p>Right now we ribbit loudest on <a href="https://www.instagram.com/mechafrog_official" target="_blank">@mechafrog_official</a>.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    form.addEventListener('submit', (e) => {
-      const emailVal = email.value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-        e.preventDefault();
-        err.textContent = 'Please enter a valid email.';
+  <div class="panel">
+    <div class="panel-inner media">
+      <div class="frame"><img src="mechafrog-hero.png" alt="MechaFrog Hero"></div>
+      <div class="subframe"><img src="mechafrog-logo.png" alt="MechaFrog Logo"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="year"></span> MechaFrog — The Future is Ribbit</span>
+  <span><a href="#">Privacy</a> · <a href="#">Unsubscribe</a></span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('signup');
+  const ok = document.getElementById('ok');
+  const err = document.getElementById('err');
+  const btn = document.getElementById('submitBtn');
+  const email = document.getElementById('email');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    ok.style.display = 'none';
+    err.style.display = 'none';
+
+    // Trim + HTML5-Validation (robust & einfach)
+    email.value = email.value.trim();
+    if (!email.checkValidity()) {
+      err.textContent = 'Please enter a valid email.';
+      err.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (resp.ok) {
+        ok.style.display = 'block';
+        form.reset();
+      } else {
         err.style.display = 'block';
-        return;
       }
-      err.style.display = 'none';
-    });
-  </script>
+    } catch (_) {
+      err.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Notify me';
+    }
+  });
+</script>
 </body>
 </html>
