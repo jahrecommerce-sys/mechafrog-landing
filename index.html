@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MechaFrog — The Meme Awakens 🐸⚙️</title>
 <meta name="description" content="The swamp goes digital. Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
+
+<!-- 🧠 Open Graph & Social Meta -->
 <meta property="og:title" content="MechaFrog — The Meme Awakens 🐸⚙️">
 <meta property="og:description" content="Join the MechaFrog presale and get early access to the Play-to-Mine mini-game — earn MECHA by mining, evolving and ribbiting your way through the future.">
 <meta property="og:image" content="https://mechafrog.vercel.app/preview.png">
@@ -14,177 +16,107 @@
 <meta name="twitter:description" content="Join the MechaFrog presale and unlock Play-to-Mine early access. Ribbit the future.">
 <meta name="twitter:image" content="https://mechafrog.vercel.app/preview.png">
 <meta name="theme-color" content="#18e06f">
+
 <style>
-:root{--bg:#050a0c;--fg:#eaffef;--muted:#9bb0a0;--accent:#18e06f;--accent-2:#38f28a;--stroke:#14303f;--panel:#0a0f12;--panel-soft:#0c1418;--glow:#18e06f44;}
+:root{
+  --bg:#050a0c;--fg:#eaffef;--muted:#9bb0a0;--accent:#18e06f;--accent-2:#38f28a;--stroke:#14303f;
+  --panel:#0a0f12;--panel-soft:#0c1418;--glow:#18e06f44;
+}
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,var(--glow),transparent 60%),var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
-a{color:var(--accent);text-decoration:none}
-header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid #0f222c;backdrop-filter:blur(10px);z-index:10}
+header{position:sticky;top:0;background:rgba(5,10,12,.7);border-bottom:1px solid #0f222c;backdrop-filter:blur(10px);z-index:100}
 .bar{max-width:1040px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
 .brand{display:flex;align-items:center;gap:10px}
 .logo{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:#0f1720;border:1px solid #173243}
+.nav{display:flex;align-items:center;gap:14px}
+.nav-link{color:var(--fg);font-weight:600;padding:8px 10px;border-radius:8px;border:1px solid transparent;text-decoration:none}
+.nav-link:hover{border-color:#153624;background:#0c1418}
 .cta-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
-.news{background:linear-gradient(90deg,#0c1418, #0f2218);border-bottom:1px solid #153624;color:#c9f6da}
-.news-inner{max-width:1040px;margin:0 auto;padding:8px 20px;display:flex;gap:10px;align-items:center;justify-content:space-between}
-.news p{margin:0;font-size:14px}
-.news button{background:transparent;border:1px solid #24523d;color:#9be7c4;border-radius:999px;padding:4px 10px;cursor:pointer}
+
 .hero{max-width:1040px;margin:24px auto;display:grid;grid-template-columns:minmax(420px,1fr) 400px;gap:24px;padding:0 20px;align-items:start}
 .panel{background:#0b1114;border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 .panel-inner{padding:28px}
+
 h1{text-align:center;font-size:40px;margin:0 0 8px}
 .title-line{display:flex;justify-content:center;align-items:center;gap:10px}
-.lead{text-align:center;color:var(--muted);margin-bottom:14px}
-.meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0 18px}
-.badge{font-size:12px;border:1px solid #2a3841;background:#0c1216;padding:6px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
-.counter{font-weight:800;color:#a9f3c8}
-.signup{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;max-width:720px;margin:10px auto 0}
+.lead{text-align:center;color:var(--muted);margin-bottom:20px}
+
+.signup{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;max-width:720px;margin:auto}
 .signup label{font-size:12px;color:var(--muted)}
 .signup input{height:52px;padding:0 14px;border-radius:12px;border:1px solid #173243;background:var(--panel-soft);color:var(--fg)}
-.signup input::placeholder{color:#6f8a7d}
 .signup button{height:52px;padding:0 18px;border-radius:12px;border:0;background:var(--accent);color:#041b10;font-weight:900;cursor:pointer}
-.ok,.err{display:none;margin:12px auto 0;max-width:520px;padding:10px;border-radius:12px;text-align:center}
+.ok,.err{display:none;margin:14px auto;max-width:520px;padding:10px;border-radius:12px;text-align:center}
 .ok{background:#0f1d16;border:1px solid #1e3f2c;color:#b9f7cf}
 .err{background:#1b1414;border:1px solid #4c2a2a;color:#f5b5b5}
+
 .media{display:grid;gap:16px;align-self:start}
 .frame,.subframe{border-radius:16px;border:1px solid #173243;background:#061015;padding:14px;display:grid;place-items:center}
 img{max-width:100%;border-radius:10px}
-.section-title{margin:0 0 10px;text-align:center;font-weight:900}
-.road{display:grid;gap:12px}
-.road .step{border:1px solid #173243;background:#0c1216;border-radius:12px;padding:12px 14px}
-.road .step strong{display:block;margin-bottom:4px}
-.updates{display:grid;gap:10px;margin-top:16px}
-.update{display:flex;gap:10px;align-items:flex-start;border:1px solid #173243;background:#0c1216;border-radius:12px;padding:10px 12px}
-.update time{font-size:12px;color:#9bb0a0;min-width:90px}
-.update p{margin:0;color:#cfeee0}
-.progress-wrap{margin-top:14px}
-.progress-label{display:flex;justify-content:space-between;color:#9bb0a0;font-size:13px;margin-bottom:6px}
-.progress{height:10px;background:#0c1216;border:1px solid #173243;border-radius:999px;overflow:hidden}
-.progress > span{display:block;height:100%;background:linear-gradient(90deg,#18e06f,#38f28a);width:0%}
+
 footer{max-width:1040px;margin:30px auto;padding:0 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+a{color:var(--accent);text-decoration:none}
 @media(max-width:880px){.hero{grid-template-columns:1fr;}h1{font-size:32px}}
-/* Play-to-Mine styles */
-.ptm{display:grid;grid-template-columns:320px 1fr;gap:16px}
-.ptm-card{border:1px solid #173243;background:#0c1216;border-radius:14px;padding:14px}
-.ptm-avatar{display:grid;place-items:center;margin-bottom:10px}
-.ptm-avatar img{width:120px;height:120px;border-radius:12px;box-shadow:0 0 30px #18e06f44}
-.ptm-btn{width:100%;height:48px;border-radius:12px;border:0;background:linear-gradient(180deg,#18e06f,#38f28a);color:#041b10;font-weight:900;cursor:pointer}
-.ptm-btn:active{transform:translateY(1px)}
-.ptm-stats{display:grid;gap:6px;margin-top:10px;font-size:14px}
-.ptm-shop{display:grid;gap:10px}
-.ptm-item{display:flex;justify-content:space-between;align-items:center;background:#0b1013;border:1px solid #173243;border-radius:12px;padding:10px}
-.ptm-item h5{margin:0 0 4px;font-size:14px}
-.ptm-item .meta{color:#9bb0a0;font-size:12px}
-.ptm-buy{height:36px;border-radius:10px;border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;padding:0 10px;cursor:pointer}
-.ptm-buy:disabled{opacity:.5;cursor:not-allowed}
-.ptm-note{color:#9bb0a0;font-size:12px;margin-top:8px}
-.ptm-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.ptm-badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:6px 10px;font-size:12px}
-.ptm-link{background:transparent;border:0;color:#a9f3c8;cursor:pointer;text-decoration:underline}
-@media(max-width:880px){.ptm{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="news" id="newsBar">
-  <div class="news-inner">
-    <p>🚀 <strong>News:</strong> Presale smart contract testing complete. Play-to-Mine teaser dropping soon.</p>
-    <button id="newsClose" aria-label="Hide news">Hide</button>
-  </div>
-</div>
 <header>
   <div class="bar">
     <div class="brand"><div class="logo">🐸</div><strong>MECHAFROG</strong></div>
-    <a href="#signup" class="cta-btn">Get presale alert</a>
+    <nav class="nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/game.html" class="nav-link">Play-to-Mine</a>
+      <a href="#signup" class="cta-btn">Get presale alert</a>
+    </nav>
   </div>
 </header>
+
 <section class="hero">
   <div class="panel">
     <div class="panel-inner">
       <h1 class="title-line">MechaFrog is booting up ⚙️🐸</h1>
       <p class="lead">Be the first to know when the <strong>MECHA</strong> presale goes live. Zero spam, just one email when it starts.</p>
-      <div class="meta-row">
-        <span class="badge">📸 <a href="https://www.instagram.com/mechafrog_official" target="_blank" rel="noopener">@mechafrog_official</a></span>
-        <span class="badge">💬 Discord soon</span>
-        <span class="badge">🐸 <span class="counter"><span id="joinCount">120</span> frogs joined</span></span>
-      </div>
+
       <form id="signup" class="signup" method="POST" action="https://formspree.io/f/xgvpjlow">
         <label for="email">Email</label>
         <input id="email" name="_replyto" type="email" placeholder="you@example.com" required autocomplete="email" />
         <button id="submitBtn" type="submit">Notify me</button>
       </form>
+
       <div id="ok" class="ok">🐸 You’re in. The swamp awakens. <strong>Ribbit the future.</strong></div>
       <div id="err" class="err">⚠️ Something went wrong. Try again.</div>
-      <section class="panel" style="margin-top:20px">
-        <div class="panel-inner" id="ptm-root">
-          <h3 class="section-title">🎮 Play-to-Mine — Lite Demo</h3>
-          <p style="color:var(--muted);margin-top:-6px">Passive mining + clicks + upgrades. Your progress is saved locally.</p>
-          <div id="ptm-app" class="ptm">
-            <div class="ptm-left">
-              <div class="ptm-card">
-                <div class="ptm-avatar">
-                  <img src="mechafrog-logo.png" alt="MechaFrog" />
-                </div>
-                <button id="ptm-mine-btn" class="ptm-btn">⛏️ Mine</button>
-                <div class="ptm-stats">
-                  <div><strong>MECHA</strong> <span id="ptm-mecha">0</span></div>
-                  <div><strong>Hashrate</strong> <span id="ptm-hashrate">50</span> H/s</div>
-                  <div><strong>Passive</strong> <span id="ptm-passive">50</span> H/s</div>
-                  <div><strong>Per Click</strong> <span id="ptm-perclick">+3</span></div>
-                </div>
-              </div>
+
+      <div class="panel" style="margin-top:20px">
+        <div class="panel-inner">
+          <h3 style="text-align:center">Why MechaFrog?</h3>
+          <ul style="color:var(--muted);padding-left:18px">
+            <li>🧪 <strong>Born from the swamp</strong> — a fusion of meme energy and machine power.</li>
+            <li>🤝 <strong>Community first</strong> — built by frogs, for frogs.</li>
+            <li>⚙️ <strong>No hype. Just evolution.</strong></li>
+          </ul>
+
+          <div style="border:1px solid #1a5f40;background:linear-gradient(180deg,#0f1d16,#0b1410);border-radius:12px;padding:12px 14px;margin:12px 0 18px">
+            <div style="font-weight:800;margin-bottom:4px">🎮 Exclusive Access: <span style="color:#9be7c4">Play-to-Mine</span></div>
+            <div style="color:var(--muted);font-size:14px">
+              Holders from the <strong>MechaFrog presale</strong> will gain early access to our experimental
+              <strong>idle/miner mini-game</strong> — a playful way to “mine” MECHA by completing missions and hitting milestones.
             </div>
-            <div class="ptm-right">
-              <div class="ptm-card">
-                <h4 style="margin:0 0 8px">⚙️ Upgrades</h4>
-                <div id="ptm-shop" class="ptm-shop"></div>
-                <div class="ptm-note">Upgrades cost MECHA and increase your hashrate. Data is stored locally.</div>
-              </div>
-            </div>
+            <ul style="margin:10px 0 0 18px;color:var(--muted);font-size:14px">
+              <li>🪙 <strong>Presale required</strong> — only early holders can join the mining phase</li>
+              <li>⚙️ <strong>Earn rewards</strong> — reach milestones to receive token bonuses</li>
+              <li>📱 <strong>Play in your browser</strong> — simple, mobile-friendly & addictive</li>
+            </ul>
           </div>
-          <div class="ptm-footer">
-            <div class="ptm-badge">🐸 Demo only — real rewards for presale holders in the full game.</div>
-            <button id="ptm-reset" class="ptm-link">Reset progress</button>
-          </div>
+
+          <h3 style="text-align:center">FAQ</h3>
+          <details><summary>⏳ When does the presale start?</summary><p>Soon — once the code is polished and the frogs are ready. Join the list to be first.</p></details>
+          <details><summary>📰 How can I join early?</summary><p>Subscribe with your email — we’ll ping you the moment it’s live.</p></details>
+          <details><summary>🎮 What’s “Play-to-Mine”?</summary><p>A light idle/miner mini-game during presale where you tap, upgrade and “mine” MECHA. It’s just for fun — perks may apply.</p></details>
+          <details><summary>📣 Where’s the community?</summary><p>Right now we ribbit loudest on <a href="https://www.instagram.com/mechafrog_official" target="_blank">@mechafrog_official</a>.</p></details>
         </div>
-      </section>
-      <h3 class="section-title">Latest Updates</h3>
-      <div class="updates" id="updates">
-        <div class="update"><time>2025-03-01</time><p>✅ Landing page v2 live: counter, roadmap, FAQ, social links.</p></div>
-        <div class="update"><time>2025-03-02</time><p>🧪 Smart contracts retested on Sepolia; claim & buy flow verified.</p></div>
-        <div class="update"><time>2025-03-03</time><p>🎮 Play-to-Mine mini-game concept locked for presale holders.</p></div>
       </div>
-      <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Presale preparation</span>
-          <strong><span id="progressPctText">80%</span></strong>
-        </div>
-        <div class="progress"><span id="progressBar"></span></div>
-      </div>
-      <h3 class="section-title" style="margin-top:16px">Roadmap</h3>
-      <div class="road">
-        <div class="step"><strong>Phase 1 — Awakening 🐸</strong> Landing page, socials, email list, brand visuals. <em>Now</em></div>
-        <div class="step"><strong>Phase 2 — Presale ⚙️</strong> Contracts audit & deploy, presale page, progress tracking.</div>
-        <div class="step"><strong>Phase 3 — Play-to-Mine 🎮</strong> Early access for presale holders, leaderboard & perks.</div>
-        <div class="step"><strong>Phase 4 — Listing 🚀</strong> DEX launch, liquidity, expanded rewards & partnerships.</div>
-      </div>
-      <h3 class="section-title" style="margin-top:16px">FAQ</h3>
-      <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
-        <summary style="cursor:pointer;outline:none;font-weight:700">⏳ When does the presale start?</summary>
-        <p style="margin:8px 0 0;color:var(--muted)">Soon — once the code is polished and the frogs are ready. Join the list to be first.</p>
-      </details>
-      <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
-        <summary style="cursor:pointer;outline:none;font-weight:700">📰 How can I join early?</summary>
-        <p style="margin:8px 0 0;color:var(--muted)">Subscribe with your email — we’ll ping you the moment it’s live.</p>
-      </details>
-      <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px;margin-bottom:8px">
-        <summary style="cursor:pointer;outline:none;font-weight:700">🎮 What’s “Play-to-Mine”?</summary>
-        <p style="margin:8px 0 0;color:var(--muted)">A light idle/miner mini-game during presale where you tap, upgrade and “mine” MECHA. It’s just for fun — perks may apply.</p>
-      </details>
-      <details style="border:1px solid #173243;border-radius:10px;background:#0c1216;padding:10px 12px">
-        <summary style="cursor:pointer;outline:none;font-weight:700">📣 Where’s the community?</summary>
-        <p style="margin:8px 0 0;color:var(--muted)">Right now we ribbit loudest on <a href="https://www.instagram.com/mechafrog_official" target="_blank" rel="noopener">@mechafrog_official</a>.</p>
-      </details>
     </div>
   </div>
+
   <div class="panel">
     <div class="panel-inner media">
       <div class="frame"><img src="mechafrog-hero.png" alt="MechaFrog Hero"></div>
@@ -192,51 +124,53 @@ footer{max-width:1040px;margin:30px auto;padding:0 20px;display:flex;justify-con
     </div>
   </div>
 </section>
+
 <footer>
   <span>© <span id="year"></span> MechaFrog — The Future is Ribbit</span>
   <span><a href="#">Privacy</a> · <a href="#">Unsubscribe</a></span>
 </footer>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  const newsBar = document.getElementById('newsBar');
-  const newsClose = document.getElementById('newsClose');
-  if (localStorage.getItem('mf_news_hidden') === '1') newsBar.style.display = 'none';
-  newsClose.addEventListener('click', () => { newsBar.style.display = 'none'; localStorage.setItem('mf_news_hidden','1'); });
-  const BASE_JOIN_COUNT = 120;
-  const joinCountEl = document.getElementById('joinCount');
-  const saved = Number(localStorage.getItem('mf_join_add')||0);
-  joinCountEl.textContent = BASE_JOIN_COUNT + saved;
-  const PRESALE_PROGRESS = 80;
-  document.getElementById('progressPctText').textContent = PRESALE_PROGRESS + '%';
-  document.getElementById('progressBar').style.width = PRESALE_PROGRESS + '%';
+
   const form = document.getElementById('signup');
   const ok = document.getElementById('ok');
   const err = document.getElementById('err');
   const btn = document.getElementById('submitBtn');
   const email = document.getElementById('email');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     ok.style.display = 'none';
     err.style.display = 'none';
     email.value = email.value.trim();
-    if (!email.checkValidity()) { err.textContent = 'Please enter a valid email.'; err.style.display = 'block'; return; }
-    btn.disabled = true; btn.textContent = 'Sending…';
+    if (!email.checkValidity()) {
+      err.textContent = 'Please enter a valid email.';
+      err.style.display = 'block';
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
     try {
-      const resp = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
       if (resp.ok) {
-        ok.style.display = 'block'; form.reset();
-        const alreadyAdded = Number(localStorage.getItem('mf_join_added_flag')||0);
-        if (!alreadyAdded) {
-          const inc = Number(localStorage.getItem('mf_join_add')||0) + 1;
-          localStorage.setItem('mf_join_add', String(inc));
-          localStorage.setItem('mf_join_added_flag','1');
-          joinCountEl.textContent = BASE_JOIN_COUNT + inc;
-        }
-      } else { err.style.display = 'block'; }
-    } catch (_) { err.style.display = 'block'; }
-    finally { btn.disabled = false; btn.textContent = 'Notify me'; }
+        ok.style.display = 'block';
+        form.reset();
+      } else {
+        err.style.display = 'block';
+      }
+    } catch (_) {
+      err.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Notify me';
+    }
   });
 </script>
-<script src="mechafrog-game.js"></script>
 </body>
 </html>
+
