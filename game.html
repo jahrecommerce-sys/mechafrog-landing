@@ -39,6 +39,9 @@ h1{text-align:center;font-size:34px;margin:0}
 @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 .screen-glow{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);width:60%;height:10px;border-radius:999px;background:radial-gradient(50% 100% at 50% 0%,#18e06f66,transparent 70%);filter:blur(6px);animation:glow 2.4s ease-in-out infinite}
 @keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}
+/* Click pulse on avatar */
+.pulse{animation:pulse 350ms ease-out}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 
 /* Shop + Progress */
 .ptm-shop{display:grid;gap:12px}
@@ -57,6 +60,18 @@ h1{text-align:center;font-size:34px;margin:0}
 /* Live rate pill */
 .ptm-rate{margin-top:10px;padding:10px;border:1px solid #24523d;background:#0f1d16;border-radius:10px;color:#a9f3c8;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:center}
 .rate-pill{border:1px solid #24523d;background:#0b1712;padding:6px 10px;border-radius:999px}
+
+/* Achievements */
+.achv-list{display:grid;gap:10px}
+.achv{display:flex;justify-content:space-between;align-items:center;border:1px solid #173243;background:#0c1216;border-radius:12px;padding:10px}
+.achv .name{font-weight:700}
+.achv .hint{color:#9bb0a0;font-size:12px}
+.achv.done{border-color:#1e4d35;background:#0f1d16}
+.badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:4px 8px;font-size:12px}
+
+/* Floating +X bubble on click */
+.fx-bubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;font-weight:800;color:#c9f6da;text-shadow:0 0 8px #18e06f88;animation:rise 700ms ease-out forwards}
+@keyframes rise{0%{opacity:0;transform:translate(-50%,-20%) scale(.9)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,-90%) scale(1.1)}}
 
 .ptm-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
 .ptm-badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:6px 10px;font-size:12px}
@@ -84,9 +99,9 @@ h1{text-align:center;font-size:34px;margin:0}
       <div id="ptm-app" class="ptm">
         <div class="ptm-left">
           <div class="ptm-card">
-            <div class="pc-scene">
-              <!-- Ersetze die Bilddatei durch dein MechaFrog-am-PC-Bild und benenne es mechafrog-pc.png -->
-              <img src="mechafrog-pc.png" alt="MechaFrog at PC" />
+            <div class="pc-scene" id="pcScene">
+              <!-- Lege dein Bild (Frog am PC) als mechafrog-pc.png ins Projekt -->
+              <img id="frogImg" src="mechafrog-pc.png" alt="MechaFrog at PC" />
               <div class="screen-glow"></div>
             </div>
 
@@ -112,6 +127,11 @@ h1{text-align:center;font-size:34px;margin:0}
             <h4 style="margin:0 0 8px">⚙️ Upgrades</h4>
             <div id="ptm-shop" class="ptm-shop"></div>
             <div class="ptm-note">Upgrades cost MECHA and increase your hashrate. Progress shows how close you are to affording it.</div>
+          </div>
+
+          <div class="ptm-card" style="margin-top:12px">
+            <h4 style="margin:0 0 8px">🏆 Achievements</h4>
+            <div id="achvList" class="achv-list"></div>
           </div>
         </div>
       </div>
