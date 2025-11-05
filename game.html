@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MechaFrog — Play-to-Mine 🎮</title>
+<meta name="theme-color" content="#18e06f">
+<style>
+:root{--bg:#050a0c;--fg:#eaffef;--muted:#9bb0a0;--accent:#18e06f;--accent-2:#38f28a;--stroke:#14303f;--panel:#0a0f12}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 450px at 20% -10%,#18e06f2b,transparent 60%),var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
+a{color:var(--accent);text-decoration:none}
+header{position:sticky;top:0;background:#0a0f12;border-bottom:1px solid #173243;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+.logo{font-weight:900;font-size:20px;display:flex;align-items:center;gap:8px}
+.nav{display:flex;align-items:center;gap:14px}
+.nav-link{color:var(--fg);font-weight:600;padding:8px 10px;border-radius:8px;border:1px solid transparent;text-decoration:none}
+.nav-link:hover{border-color:#153624;background:#0c1418}
+.cta-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
+
+.main{max-width:1040px;margin:30px auto;padding:0 20px;display:grid;gap:20px}
+.panel{background:#0b1114;border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.panel-inner{padding:28px}
+h1{text-align:center;font-size:34px;margin:0}
+.lead{text-align:center;color:var(--muted);margin:6px 0 16px}
+
+.ptm{display:grid;grid-template-columns:320px 1fr;gap:16px}
+.ptm-card{border:1px solid #173243;background:#0c1216;border-radius:14px;padding:14px}
+.ptm-avatar{display:grid;place-items:center;margin-bottom:10px}
+.ptm-avatar img{width:120px;height:120px;border-radius:12px;box-shadow:0 0 30px #18e06f44}
+.ptm-btn{width:100%;height:48px;border-radius:12px;border:0;background:linear-gradient(180deg,#18e06f,#38f28a);color:#041b10;font-weight:900;cursor:pointer}
+.ptm-btn:active{transform:translateY(1px)}
+.ptm-stats{display:grid;gap:6px;margin-top:10px;font-size:14px}
+.ptm-shop{display:grid;gap:10px}
+.ptm-item{display:flex;justify-content:space-between;align-items:center;background:#0b1013;border:1px solid #173243;border-radius:12px;padding:10px}
+.ptm-item h5{margin:0 0 4px;font-size:14px}
+.ptm-item .meta{color:#9bb0a0;font-size:12px}
+.ptm-buy{height:36px;border-radius:10px;border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;padding:0 10px;cursor:pointer}
+.ptm-buy:disabled{opacity:.5;cursor:not-allowed}
+.ptm-note{color:#9bb0a0;font-size:12px;margin-top:8px}
+.ptm-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.ptm-badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:6px 10px;font-size:12px}
+.ptm-link{background:transparent;border:0;color:#a9f3c8;cursor:pointer;text-decoration:underline}
+.ptm-rate{margin-top:10px;padding:10px;border:1px solid #24523d;background:#0f1d16;border-radius:10px;color:#a9f3c8;font-size:13px}
+.rate-line{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.rate-pill{border:1px solid #24523d;background:#0b1712;padding:6px 10px;border-radius:999px}
+
+@media(max-width:880px){.ptm{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🐸 <strong>MECHAFROG</strong></div>
+  <nav class="nav">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/game.html" class="nav-link" aria-current="page">Play-to-Mine</a>
+    <a href="/#signup" class="cta-btn">Get presale alert</a>
+  </nav>
+</header>
+
+<main class="main">
+  <div class="panel">
+    <div class="panel-inner">
+      <h1>🎮 Play-to-Mine — Lite Demo</h1>
+      <p class="lead">Passive mining + clicks + upgrades. Your progress is saved locally.</p>
+
+      <div id="ptm-app" class="ptm">
+        <div class="ptm-left">
+          <div class="ptm-card">
+            <div class="ptm-avatar">
+              <img src="mechafrog-logo.png" alt="MechaFrog" />
+            </div>
+            <button id="ptm-mine-btn" class="ptm-btn">⛏️ Mine</button>
+            <div class="ptm-stats">
+              <div><strong>MECHA</strong> <span id="ptm-mecha">0</span></div>
+              <div><strong>Hashrate</strong> <span id="ptm-hashrate">50</span> H/s</div>
+              <div><strong>Passive</strong> <span id="ptm-passive">50</span> H/s</div>
+              <div><strong>Per Click</strong> <span id="ptm-perclick">+3</span></div>
+            </div>
+
+            <!-- Live rate box -->
+            <div class="ptm-rate">
+              <div class="rate-line">
+                <span>📈 Live mining rate:</span>
+                <span class="rate-pill"><strong id="ptm-rate-ps">0.00000</strong> MECHA/s</span>
+                <span class="rate-pill"><strong id="ptm-rate-pm">0.00000</strong> MECHA/min</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ptm-right">
+          <div class="ptm-card">
+            <h4 style="margin:0 0 8px">⚙️ Upgrades</h4>
+            <div id="ptm-shop" class="ptm-shop"></div>
+            <div class="ptm-note">Upgrades cost MECHA and increase your hashrate.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptm-footer">
+        <div class="ptm-badge">🐸 Demo only — real rewards for presale holders.</div>
+        <button id="ptm-reset" class="ptm-link">Reset progress</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="mechafrog-game.js"></script>
+</body>
+</html>
