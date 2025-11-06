@@ -20,30 +20,36 @@ header{position:sticky;top:0;background:#0a0f12;border-bottom:1px solid #173243;
 .cta-btn{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#041b10;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
 
 /* Layout */
-.main{max-width:1040px;margin:30px auto;padding:0 20px;display:grid;gap:20px}
+.main{max-width:1200px;margin:30px auto;padding:0 20px;display:grid;gap:20px}
 .panel{background:#0b1114;border:1px solid var(--stroke);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.panel-inner{padding:28px}
+.panel-inner{padding:24px}
 h1{text-align:center;font-size:34px;margin:0}
 .lead{text-align:center;color:var(--muted);margin:6px 0 16px}
 
-/* Game UI */
-.ptm{display:grid;grid-template-columns:340px 1fr;gap:16px}
-.ptm-card{border:1px solid #173243;background:#0c1216;border-radius:14px;padding:14px}
-.ptm-stats{display:grid;gap:6px;margin-top:10px;font-size:14px}
-.ptm-btn{width:100%;height:48px;border-radius:12px;border:0;background:linear-gradient(180deg,#18e06f,#38f28a);color:#041b10;font-weight:900;cursor:pointer}
-.ptm-btn:active{transform:translateY(1px)}
+/* THREE columns */
+.ptm{display:grid;grid-template-columns:340px 1fr 320px;gap:16px}
 
-/* Animated MechaFrog at PC */
+/* Dashboard */
+.dash{border:1px solid #173243;background:#0c1216;border-radius:14px;padding:14px}
+.dash-title{font-weight:900;display:flex;align-items:center;gap:10px;margin:0 0 10px}
 .pc-scene{position:relative;display:grid;place-items:center;margin-bottom:10px}
 .pc-scene img{width:220px;height:auto;border-radius:14px;filter:drop-shadow(0 0 18px #18e06f55);animation:float 3.2s ease-in-out infinite}
 @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 .screen-glow{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);width:60%;height:10px;border-radius:999px;background:radial-gradient(50% 100% at 50% 0%,#18e06f66,transparent 70%);filter:blur(6px);animation:glow 2.4s ease-in-out infinite}
 @keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}
-/* Click pulse on avatar */
 .pulse{animation:pulse 350ms ease-out}
 @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 
-/* Shop + Progress */
+.ptm-btn{width:100%;height:48px;border-radius:12px;border:0;background:linear-gradient(180deg,#18e06f,#38f28a);color:#041b10;font-weight:900;cursor:pointer}
+.ptm-btn:active{transform:translateY(1px)}
+.stat-line{display:flex;justify-content:space-between;margin-top:8px;font-size:14px}
+.badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:4px 8px;font-size:12px}
+.dash-box{border:1px solid #173243;background:#0b1013;border-radius:12px;padding:10px;margin-top:10px}
+.ptm-rate{display:flex;gap:10px;align-items:center;justify-content:center}
+.rate-pill{border:1px solid #24523d;background:#0b1712;padding:6px 10px;border-radius:999px}
+
+/* Upgrades */
+.ptm-card{border:1px solid #173243;background:#0c1216;border-radius:14px;padding:14px}
 .ptm-shop{display:grid;gap:12px}
 .ptm-item{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;background:#0b1013;border:1px solid #173243;border-radius:12px;padding:12px}
 .ptm-item h5{margin:0 0 4px;font-size:14px}
@@ -51,15 +57,9 @@ h1{text-align:center;font-size:34px;margin:0}
 .ptm-item .meta{color:#9bb0a0;font-size:12px;margin-bottom:8px}
 .ptm-buy{height:36px;border-radius:10px;border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;padding:0 12px;cursor:pointer;white-space:nowrap}
 .ptm-buy:disabled{opacity:.5;cursor:not-allowed}
-
-/* Progress bar under each upgrade */
 .prog{height:8px;background:#0c1418;border:1px solid #1b3a2b;border-radius:999px;overflow:hidden}
 .prog > span{display:block;height:100%;width:0%;background:linear-gradient(90deg,#18e06f,#38f28a)}
 .prog-label{display:flex;justify-content:space-between;color:#9bb0a0;font-size:12px;margin-top:6px}
-
-/* Live rate pill */
-.ptm-rate{margin-top:10px;padding:10px;border:1px solid #24523d;background:#0f1d16;border-radius:10px;color:#a9f3c8;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:center}
-.rate-pill{border:1px solid #24523d;background:#0b1712;padding:6px 10px;border-radius:999px}
 
 /* Achievements */
 .achv-list{display:grid;gap:10px}
@@ -67,17 +67,16 @@ h1{text-align:center;font-size:34px;margin:0}
 .achv .name{font-weight:700}
 .achv .hint{color:#9bb0a0;font-size:12px}
 .achv.done{border-color:#1e4d35;background:#0f1d16}
-.badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:4px 8px;font-size:12px}
 
-/* Floating +X bubble on click */
+/* Click bubble */
 .fx-bubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;font-weight:800;color:#c9f6da;text-shadow:0 0 8px #18e06f88;animation:rise 700ms ease-out forwards}
 @keyframes rise{0%{opacity:0;transform:translate(-50%,-20%) scale(.9)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,-90%) scale(1.1)}}
 
+.ptm-note{color:#9bb0a0;font-size:12px;margin-top:8px}
 .ptm-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.ptm-badge{border:1px solid #24523d;background:#0f1d16;color:#a9f3c8;border-radius:999px;padding:6px 10px;font-size:12px}
 .ptm-link{background:transparent;border:0;color:#a9f3c8;cursor:pointer;text-decoration:underline}
 
-@media(max-width:880px){.ptm{grid-template-columns:1fr}}
+@media(max-width:1100px){.ptm{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -97,47 +96,46 @@ h1{text-align:center;font-size:34px;margin:0}
       <p class="lead">Passive mining + clicks + upgrades. Your progress is saved locally.</p>
 
       <div id="ptm-app" class="ptm">
-        <div class="ptm-left">
-          <div class="ptm-card">
-            <div class="pc-scene" id="pcScene">
-              <!-- Lege dein Bild (Frog am PC) als mechafrog-pc.png ins Projekt -->
-              <img id="frogImg" src="mechafrog-pc.png" alt="MechaFrog at PC" />
-              <div class="screen-glow"></div>
-            </div>
+        <!-- LEFT: DASHBOARD -->
+        <div class="dash">
+          <h3 class="dash-title">📊 Dashboard</h3>
+          <div class="pc-scene" id="pcScene">
+            <img id="frogImg" src="mechafrog-pc.png" alt="MechaFrog at PC" />
+            <div class="screen-glow"></div>
+          </div>
+          <button id="ptm-mine-btn" class="ptm-btn">⛏️ Mine</button>
 
-            <button id="ptm-mine-btn" class="ptm-btn">⛏️ Mine</button>
+          <div class="stat-line"><span>MECHA</span><strong id="ptm-mecha">0</strong></div>
+          <div class="stat-line"><span>Hashrate</span><strong id="ptm-hashrate">50</strong><span>H/s</span></div>
+          <div class="stat-line"><span>Per Click</span><strong id="ptm-perclick">+6</strong></div>
 
-            <div class="ptm-stats">
-              <div><strong>MECHA</strong> <span id="ptm-mecha">0</span></div>
-              <div><strong>Hashrate</strong> <span id="ptm-hashrate">50</span> H/s</div>
-              <div><strong>Passive</strong> <span id="ptm-passive">50</span> H/s</div>
-              <div><strong>Per Click</strong> <span id="ptm-perclick">+3</span></div>
-            </div>
-
-            <!-- Nur Live-Rate in MECHA/s -->
+          <div class="dash-box">
             <div class="ptm-rate">
-              <span>📈 Live mining rate:</span>
+              <span>📈 Live rate:</span>
               <span class="rate-pill"><strong id="ptm-rate-ps">0.00000</strong> MECHA/s</span>
+            </div>
+            <div class="stat-line" style="margin-top:8px">
+              <span>Bonus multiplier</span>
+              <span id="bonusMult" class="badge">×1.00</span>
             </div>
           </div>
         </div>
 
-        <div class="ptm-right">
-          <div class="ptm-card">
-            <h4 style="margin:0 0 8px">⚙️ Upgrades</h4>
-            <div id="ptm-shop" class="ptm-shop"></div>
-            <div class="ptm-note">Upgrades cost MECHA and increase your hashrate. Progress shows how close you are to affording it.</div>
-          </div>
+        <!-- MIDDLE: UPGRADES -->
+        <div class="ptm-card">
+          <h4 style="margin:0 0 8px">⚙️ Upgrades</h4>
+          <div id="ptm-shop" class="ptm-shop"></div>
+          <div class="ptm-note">Upgrades cost MECHA and increase your hashrate. Progress shows how close you are to affording it.</div>
+        </div>
 
-          <div class="ptm-card" style="margin-top:12px">
-            <h4 style="margin:0 0 8px">🏆 Achievements</h4>
-            <div id="achvList" class="achv-list"></div>
-          </div>
+        <!-- RIGHT: ACHIEVEMENTS -->
+        <div class="ptm-card">
+          <h4 style="margin:0 0 8px">🏆 Achievements</h4>
+          <div id="achvList" class="achv-list"></div>
         </div>
       </div>
 
       <div class="ptm-footer">
-        <div class="ptm-badge">🐸 Demo only — real rewards for presale holders.</div>
         <button id="ptm-reset" class="ptm-link">Reset progress</button>
       </div>
     </div>
